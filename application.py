@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import logging
 import models
@@ -31,6 +31,14 @@ def get_records():
     records = models.AttendanceRecord.query.all()
     application.logger.info(records)
     return render_template("records.html", records=records)
+
+@application.route("/clear", methods=['GET','POST'])
+def clear_db():
+    # application.logger.info()
+    # redirect('/getrecords')
+    number =db.session.query(models.AttendanceRecord).delete()
+    db.session.commit()
+    return redirect('/getrecords')
 
 
 if __name__ == "__main__":
