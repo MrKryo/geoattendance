@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCs1C39-NwEtE3Gz04nwjsJDdkoV7hahk&libraries=geometry">
+        <
+        script
+        src = "js/firebase.js"
+        type = "text/javascript" ></script>
+    <script src="../static/js/jquery.js" type="text/javascript"></script>
+    <script src="../static/js/main.js" type="text/javascript"></script>
+</head>
+<body onload="init()">
+<div class="box">
+    <h1>Login</h1>
+    <input id="email" type="email" name="" placeholder="Username">
+    <input id="pass" type="password" name="" placeholder="Password">
+    <div>
+        <h2 id="email_display"></h2>
+    </div>
+    <button class="btn-submit" onclick="sendCoords()">Mark Attendance</button>
+    <button id="as_another" class="btn-submit" onclick="markAsAnother()">Mark as another user</button>
+
+</div>
+</body>
+</html>
+

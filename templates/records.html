@@ -1,0 +1,17 @@
+<html>
+<body>
+<h1>Records</h1>
+    <table>
+      {% for record in records %}
+        <tr>
+          <td>
+            {{record.email}}
+          </td>
+          <td>
+             {{record.date_time}}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+</body>
+</html>
