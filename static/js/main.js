@@ -20,13 +20,15 @@ var polygon = new google.maps.Polygon({
 });
 
 function success(position) {
+    //users latitude & longitude
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
 
     var latLng = new google.maps.LatLng(lat, lng);
     console.log(latLng);
 
-    var isInArea = google.maps.geometry.poly.containsLocation(latLng, polygon);
+    //check whether the latlng is in the polygon or not
+    var isInArea = google.maps.geometry.poly.containsLocation(latLng, polygon); //this will return true or false based on location
     isInArea = true; //@todo: only for testing purpose, remove on production
     if (isInArea) {
         console.log("TRUE");

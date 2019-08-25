@@ -1,7 +1,14 @@
 <html>
+<head>
+    <title>Attendance Records</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+</head>
 <body>
+<div class="admin">
 <h1>Records</h1>
-<form action="/clear"><button type="submit">Clear database</button></form>
+<form action="/clear"><button class="btn-submit" type="submit">Clear database</button></form>
+
 <table>
     {% for record in records %}
     <tr>
@@ -14,5 +21,6 @@
     </tr>
     {% endfor %}
 </table>
+</div>
 </body>
 </html>
