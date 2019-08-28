@@ -29,7 +29,7 @@ function success(position) {
 
     //check whether the latlng is in the polygon or not
     var isInArea = google.maps.geometry.poly.containsLocation(latLng, polygon); //this will return true or false based on location
-    isInArea = false; //@todo: only for testing purpose, remove on production
+    isInArea = true; //@todo: only for testing purpose, remove on production
     if (isInArea) {
         console.log("TRUE");
         $.post(
