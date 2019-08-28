@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 import models
+
 application = Flask(__name__)
 application.config.from_object('config')
 application.debug = True
 db = SQLAlchemy(application)
 
-
 # admin credentials
 admin_email = "dhruv@gmail.com"
 admin_pass = "123"
+
 
 @application.route("/")
 def main():
@@ -36,16 +37,14 @@ def get_records():
     return render_template("records.html", records=records)
 
 
-@application.route("/clear", methods=['GET','POST'])
+@application.route("/clear", methods=['GET', 'POST'])
 def clear_db():
-    # application.logger.info()
-    # redirect('/getrecords')
-    number =db.session.query(models.AttendanceRecord).delete()
+    db.session.query(models.AttendanceRecord).delete()
     db.session.commit()
     return redirect('/getrecords')
 
 
-@application.route("/admin", methods=['GET','POST'])
+@application.route("/admin", methods=['GET', 'POST'])
 def show_admin():
     return render_template('admin.html')
 
@@ -63,4 +62,3 @@ def validate():
 
 if __name__ == "__main__":
     application.run()
-
