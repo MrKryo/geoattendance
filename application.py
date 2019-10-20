@@ -29,14 +29,14 @@ def mark_attendance():
     db.session.commit()
     return "Successfully added record in the database"
 
-
+#getting records from db
 @application.route("/getrecords", methods=['GET'])
 def get_records():
     records = models.AttendanceRecord.query.all()
     application.logger.info(records)
     return render_template("records.html", records=records)
 
-
+#clearing db
 @application.route("/clear", methods=['GET', 'POST'])
 def clear_db():
     db.session.query(models.AttendanceRecord).delete()
@@ -48,7 +48,7 @@ def clear_db():
 def show_admin():
     return render_template('admin.html')
 
-
+#checks the correct admin
 @application.route("/validate", methods=['POST'])
 def validate():
     email = request.form['email']

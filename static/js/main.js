@@ -20,7 +20,7 @@ var polygon = new google.maps.Polygon({
 });
 
 function success(position) {
-    //users latitude & longitude
+
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
 
@@ -47,13 +47,13 @@ function success(position) {
 }
 
 function error() {
-    console.log("Error");
+    window.alert("Unable to get your location");
 }
 
 var geo_options = {
     enableHighAccuracy: true
 };
-
+// ask for location
 function sendCoords() {
     if (!isCredSaved) {
         email = $("#email").val();
@@ -74,7 +74,7 @@ function sendCoords() {
 function getEmail() {
     return email;
 }
-
+//prevent user from asking info again
 function init() {
     $("#as_another").hide();
     var storage = window.localStorage;
@@ -94,3 +94,5 @@ function markAsAnother() {
     localStorage.clear();
     location.reload();
 }
+
+
